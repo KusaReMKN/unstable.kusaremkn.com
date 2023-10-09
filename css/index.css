@@ -1,0 +1,21 @@
+html {
+	font: 1rem sans-serif;
+	text-align: justify;
+}
+body {
+	max-width: 640px;
+	margin-inline: auto;
+	padding-inline: 1rem;
+}
+header {
+	border-block-end: ridge;
+}
+section {
+	border-block-end: thin solid;
+}
+section:last-child {
+	border-block-end: initial;
+}
+footer {
+	border-block-start: ridge;
+}
