@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="KusaReMKN を支えているコンピュータたちの load average の推移を確認できます。">
+<title>Load Average</title>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@KusaReMKN">
+<meta property="og:url" content="https://unstable.kusaremkn.com/vislalog/">
+<meta property="og:title" content="Load Average">
+<meta property="og:description" content="KusaReMKN を支えているコンピュータたちの load average の推移を確認できます。">
+<meta property="og:image" content="https://unstable.kusaremkn.com/img/unstable.webp">
+<link rel="stylesheet" href="/css/index.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js" defer></script>
+<script src="./vislalog.js" defer></script>
+</head>
+<body>
+<header>
+<h1>Load Average</h1>
+</header>
+<main>
+<section id="all">
+<h2>All hosts</h2>
+<canvas id="allChart" aria-label="Load average for all hosts" role="img"></canvas>
+</section>
+<section id="each">
+<h2>Each host</h2>
+</section>
+</main>
+<footer>
+<p>
+<small>
+Char.js: Copyright &copy; 2014&ndash;2022 Chart.js Contributors.
+<a href="https://github.com/chartjs/Chart.js">GitHub Repository</a>
+</small>
+</p>
+<p>
+<small>
+chartjs-adapter-date-fns: Copyright &copy; 2019 Chart.js Contributors/
+<a href="https://github.com/chartjs/chartjs-adapter-date-fns">GitHub Repository</a>
+</small>
+</p>
+<p>
+<small>
+Copyright &copy; 2023 KusaReMKN.
+特記なき場合、プログラムやソースコードは
+<a href="/LICENSE_MIT.txt">MIT License</a> か
+<a href="/LICENSE_GPL.txt">GNU General Public License</a>
+のいづれかで、それ以外のコンテンツは
+<a href="/LICENSE_CC-BY.txt">CC BY</a> か
+<a href="/LICENSE_GFDL.txt">GNU Free Documentation License</a>
+のいづれかで利用可能です。
+</small>
+</p>
+</footer>
+</body>
+</html>
