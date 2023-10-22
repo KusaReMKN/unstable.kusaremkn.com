@@ -14,7 +14,7 @@ getLoadAvgs(url, search)
     const hosts = await fetch(url).then(res => res.json()).then(obj => obj.hosts);
     const hostUrls = hosts.map(host => {
         const hostUrl = new URL(host, url);
-        hostUrl.search = search;
+        search && (hostUrl.search = search);
         return hostUrl.toString();
     });
     const fetching = hostUrls.map(url => fetch(url).then(res => res.json()));
