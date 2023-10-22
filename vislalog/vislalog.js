@@ -4,14 +4,20 @@
  * 全ホストの load average 情報を取得する
  *
  * @param { string | URL } url - lalog の URL
+ * @param { string | undefined } search - lalog に渡す search パラメータ
  * @returns { [key: string]: { datetime: string, loadavg: number[3] }[] }
  *      - 全てのホストの load average 情報
  */
 async function
-getLoadAvgs(url)
+getLoadAvgs(url, search)
 {
     const hosts = await fetch(url).then(res => res.json()).then(obj => obj.hosts);
-    const fetching = hosts.map(host => fetch(new URL(host, url)).then(res => res.json()));
+    const hostUrls = hosts.map(host => {
+        const hostUrl = new URL(host, url);
+        hostUrl.search = search;
+        return hostUrl.toString();
+    });
+    const fetching = hostUrls.map(url => fetch(url).then(res => res.json()));
     const data = await Promise.all(fetching);
     const result = {};
     Object.assign(result, ...data);
@@ -98,7 +104,8 @@ async function
 main()
 {
     const url = 'https://unstable.kusaremkn.com/lalog/';
-    const loadavgs = await getLoadAvgs(url);
+    const search = window.location.search;
+    const loadavgs = await getLoadAvgs(url, search);
     drawAllChart(allChart, loadavgs);
     drawEachChart(each, loadavgs);
 }
